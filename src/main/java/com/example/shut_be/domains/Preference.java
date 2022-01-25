@@ -12,7 +12,7 @@ public class Preference {
     private boolean soundControl;
     private boolean colorAlert;
     private boolean soundAlert;
-    private boolean ceil;
+    private int music;
 
     public Preference() {
     }
@@ -89,11 +89,11 @@ public class Preference {
     }
 
     @Basic
-    public boolean getCeil() {
-        return ceil;
+    public int getMusic() {
+        return music;
     }
 
-    public void setCeil(boolean ceil) {
-        this.ceil = ceil;
+    public void setMusic(int music) {
+        this.music = music;
     }
 }
