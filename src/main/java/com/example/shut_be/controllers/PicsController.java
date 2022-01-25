@@ -41,7 +41,6 @@ public class PicsController {
     }
     
 
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         picService.deletePic(id);

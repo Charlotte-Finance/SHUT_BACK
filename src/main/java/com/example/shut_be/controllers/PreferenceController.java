@@ -39,11 +39,27 @@ public class PreferenceController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    
+
+    @PostMapping("/{id}")
+    public ResponseEntity<Preference> change(@RequestBody Preference preference) {
+        try {
+            Preference newPreference = preferenceService.savePreference(preference);
+            onChangePreference(newPreference);
+            return new ResponseEntity<>(newPreference, HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         preferenceService.deletePreference(id);
     }
+
+    public void onChangePreference(Preference preference){
+        // ToDo : implement
+        //"/preferences/$userId"
+    }
 }
+

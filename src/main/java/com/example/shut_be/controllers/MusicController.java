@@ -41,9 +41,4 @@ public class MusicController {
     }
     
 
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
-        musicService.deleteMusic(id);
-    }
 }

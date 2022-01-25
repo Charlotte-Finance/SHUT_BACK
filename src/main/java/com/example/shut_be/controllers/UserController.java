@@ -53,6 +53,7 @@ public class UserController {
     public ResponseEntity<User> login(@RequestBody Map<String, String> userData) {
         try {
             User user = userService.getUserByLogin(userData.get("email"), userData.get("password"));
+            onUserConnect(user.getId());
             return new ResponseEntity<>(user, HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -63,5 +64,11 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         userService.deleteUser(id);
+    }
+
+
+    public void onUserConnect(int userId){
+        // ToDo : implement
+        //"/preferences/$userId"
     }
 }
