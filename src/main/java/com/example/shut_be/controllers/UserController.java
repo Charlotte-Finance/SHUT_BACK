@@ -60,6 +60,15 @@ public class UserController {
         }
     }
 
+    @GetMapping("/{id}/preferences")
+    public ResponseEntity<Preference> getPreference(@PathVariable Integer id) {
+        try {
+            Preference preference = preferenceService.getPreferenceByUserId(id);
+            return new ResponseEntity<>(preference, HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {

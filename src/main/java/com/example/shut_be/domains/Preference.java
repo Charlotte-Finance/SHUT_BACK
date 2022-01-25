@@ -14,7 +14,8 @@ public class Preference {
     private boolean soundAlert;
     private boolean ceil;
 
-
+    public Preference() {
+    }
     public Preference(int userId) {
         this.userId = userId;
     }

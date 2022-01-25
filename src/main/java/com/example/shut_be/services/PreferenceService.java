@@ -26,6 +26,10 @@ public class PreferenceService {
         return preferenceRepository.findById(id).get();
     }
 
+    public Preference getPreferenceByUserId(Integer userId) {
+        return preferenceRepository.findByUserId(userId);
+    }
+
     public void deletePreference(Integer id) {
         preferenceRepository.deleteById(id);
     }
