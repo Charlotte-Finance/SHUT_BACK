@@ -13,9 +13,11 @@ public class Preference {
     private boolean colorAlert;
     private boolean soundAlert;
     private int music;
+    private int volume;
 
     public Preference() {
     }
+
     public Preference(int userId) {
         this.userId = userId;
     }
@@ -95,5 +97,14 @@ public class Preference {
 
     public void setMusic(int music) {
         this.music = music;
+    }
+
+    @Basic
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
     }
 }
