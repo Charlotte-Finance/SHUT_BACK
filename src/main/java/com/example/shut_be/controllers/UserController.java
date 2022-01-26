@@ -3,8 +3,10 @@ package com.example.shut_be.controllers;
 import com.example.shut_be.domains.Preference;
 import com.example.shut_be.domains.User;
 import com.example.shut_be.services.PreferenceService;
+import com.example.shut_be.services.RestService;
 import com.example.shut_be.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -77,7 +79,9 @@ public class UserController {
 
 
     public void onUserConnect(int userId){
-        // ToDo : implement
-        //"/preferences/$userId"
+        Preference preference = preferenceService.getPreferenceByUserId(userId);
+        RestTemplateBuilder rest = new RestTemplateBuilder();
+        RestService service = new RestService(rest);
+        service.sendUpdate(preference);
     }
 }

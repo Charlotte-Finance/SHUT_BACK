@@ -1,14 +1,16 @@
 package com.example.shut_be.controllers;
 
+import com.example.shut_be.domains.Post;
 import com.example.shut_be.domains.Preference;
 import com.example.shut_be.services.PreferenceService;
+import com.example.shut_be.services.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 @RestController
 @RequestMapping("/preferences")
@@ -57,9 +59,11 @@ public class PreferenceController {
         preferenceService.deletePreference(id);
     }
 
+    @PostMapping("/update")
     public void onChangePreference(Preference preference){
-        // ToDo : implement
-        //"/preferences/$userId"
+        RestTemplateBuilder rest = new RestTemplateBuilder();
+        RestService service = new RestService(rest);
+        service.sendUpdate(preference);
     }
 }
 
