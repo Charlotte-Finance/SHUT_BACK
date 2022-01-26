@@ -32,7 +32,7 @@ public class ValueController {
 
     public Integer fetchValueFromObject() {
         try {
-            URL url = new URL("http://192.168.179.132/decibel");
+            URL url = new URL("http://192.168.179.132/decibel"); // ToDo: changer l'adresse ip en fonction des appareils
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             BufferedReader in = new BufferedReader(

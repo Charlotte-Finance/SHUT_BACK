@@ -43,7 +43,7 @@ public class RestService {
     }
 
     public Post sendUpdate(Preference preference){
-        String url = "http://192.168.179.132/update";
+        String url = "http://192.168.179.132/update"; // ToDo: changer les adresses ip en fonction des appareils
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
